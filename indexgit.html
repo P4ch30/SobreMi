@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-aG8j1KJf4QGcZ4wNwH5BpYyZ3Bq8iXcI4qU49/7v+UjAGnEeRbtIRzKHfE9nE0M7Gh1Yz0Y6u9zvGoSXI4xkWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      />
+
+    <link rel="stylesheet" href="stylesgit.css" />
+    <title>Emilio Pacheco</title>
+    <style>
+
+        /* Barra de navegación */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%; /* Tamaño inicial ancho */
+            max-width: 1200px;
+            background-color:var(--clr-nav-bar);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px var(--clr-shadow);
+            z-index: 1000;
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            transition: width 0.6s ease-in-out, top 0.6s ease-in-out, transform 0.6s ease-in-out;
+            
+        }
+
+        .navbar.hidden {
+          top: -100px; /* Esconde la barra hacia arriba */
+          transition: top 0.2s ease-in-out; /* Añade transición para hacerlo suave */
+        }
+
+        /* Estilo cuando se hace scroll */
+        .navbar.scrolled {
+            width: 35%; /* Se reduce el tamaño horizontalmente */
+            box-shadow: 0px 4px 10px var(--clr-shadow);
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+            background-color: transparent;
+
+        }
+
+        /* Menú de navegación */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease-in-out;
+            background-color: transparent;
+
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--clr-fg);
+            font-size: 16px;
+            transition: color 0.3s;
+            background-color: transparent;
+
+        }
+
+        .nav-links a:hover {
+            color:var(--clr-primary);
+            background-color: transparent;
+
+        }
+        .navcenter {
+            background-color: transparent;
+
+        }
+
+        /* Cuando la barra se hace más pequeña, mover elementos hacia el centro */
+        .navbar.scrolled .nav-links,
+        .navbar.scrolled .logo,
+        .navbar.scrolled .purchase-btn {
+            transform: scale(0.9); /* Se encogen un poco */
+        }
+    </style>
+  </head>
+  <body class="light" id="top">
+    <header class="header center">
+      <div id="navbar" class="navbar">
+        <div class="logo">
+          <a href="#Inicio" class="link">JEPC.</a> 
+        </div>
+        <nav class="navcenter">
+          <ul class="nav__list center nav-links">
+            <li class="nav__list-item">
+              <a class="link link--nav" href="#Proyectos">Proyectos</a>
+            </li>
+            <li class="nav__list-item">
+              <a class="link link--nav" href="#SobreMi">Sobre Mi</a>
+            </li>
+            <li class="nav__list-item">
+              <a class="link link--nav" href="#Skills">Skills</a>
+            </li>
+            <li class="nav__list-item">
+              <a class="link link--nav" href="#Contacto">Contacto</a>
+            </li>
+          </ul>
+        </nav>
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+    
+  </body>
+
+    <main>
+      <!-- About -->
+      <div id= "Inicio" class="about center">
+        <h1>¡Hola! Soy <span class="highlight">Emilio Pacheco.</span></h1>
+        <h2 class="about__role">Conoce sobre mi.</h2>
+      
+        
+        <div class="about__contact center">
+          <a href="EmilioPachecoCuan_CV2025-2.pdf">
+            <span class="btn btn--outline"> Descarga mi CV</span>
+          </a>
+
+          <a
+            href="https://github.com/p4ch30"
+            aria-label="github"
+            class="link link--icon"
+            target="_blank"
+          >
+            <i aria-hidden="true" class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/joseemiliopacheco"
+            aria-label="linkedin"
+            class="link link--icon"
+            target="_blank"
+          >
+            <i aria-hidden="true" class="fab fa-linkedin"></i>
+          </a>
+
+          <a
+            href="https://instagram.com/avoidpach"
+            aria-label="instagram"
+            class="link link--icon"
+            target="_blank"
+          >
+            <i aria-hidden="true" class="fab fa-instagram"></i>
+          </a>
+
+          <a
+          href="https://open.spotify.com/user/12120492069"
+          aria-label="spotify"
+          class="link link--icon"
+          target="_blank"
+        >
+          <i aria-hidden="true" class="fab fa-spotify"></i>
+        </a>          
+ 
+        </div>
+      </div>
+
+
+
+<!-- Projects -->
+<section id="Proyectos" class="section projects">
+  <h2 class="section__title">
+    Mis <span class="highlight">Proyectos</span> Destacados
+  </h2>
+  <div class="projects__grid">
+    <a href="https://p4ch30.github.io/PortafolioProfesional/" class="project-panel" id="proyectos-laborales">
+      <h3 class="project-title">Proyectos Laborales</h3>
+      <ul class="project__stack">
+        <li class="project__stack-item">Dashboards</li>
+        <li class="project__stack-item">Optimización</li>
+        <li class="project__stack-item">Análisis</li>
+        <li class="project__stack-item">Predicción </li>
+        <li class="project__stack-item">Big Data</li>
+      </ul>
+    </a>
+    <a href="https://p4ch30.github.io/ProyectosAcademicos/" class="project-panel" id="proyectos-academicos">
+      <h3 class="project-title">Proyectos Académicos</h3>
+      <ul class="project__stack">
+        <li class="project__stack-item">Modelado</li>
+        <li class="project__stack-item">Simulaciones</li>
+        <li class="project__stack-item">Teoría del Caos </li>
+        <li class="project__stack-item">Métodos numéricos </li>
+      </ul>
+    </a>
+    <a href="RevistaCiencia.pdf" class="project-panel" id="proyectos-sociales">
+      <h3 class="project-title">Proyectos Sociales</h3>
+      <ul class="project__stack">
+        <li class="project__stack-item">Divulgación</li>
+        <li class="project__stack-item">Enseñanza</li>
+        <li class="project__stack-item">Investigación</li>
+      </ul>
+
+
+    </a>
+    <a href="https://www.instagram.com/focalemi?igsh=OWdwYXJ5Z2oyb3M0&utm_source=qr" class="project-panel" id="proyectos-personales">
+      <h3 class="project-title">Proyectos Personales</h3>
+      
+      <ul class="project__stack">
+        <li class="project__stack-item">Fotografía</li>
+        <li class="project__stack-item">Música</li>
+        <li class="project__stack-item">Edición</li>
+        <li class="project__stack-item">Dibujo</li>
+      </ul>
+    </a>
+  </div>
+</section>
+
+<section id="SobreMi" class="section sobre-mi">
+  <h2 class="section__title">Sobre mi </h2>
+  <div class="sobre-mi__container">
+    
+    <!-- Lado izquierdo: Imagen con fondo personalizable -->
+    <div class="sobre-mi__left">
+      <div class="sobre-mi__image-container">
+        <img src="imagenes/IMG_1869.png" alt="Mi foto" class="sobre-mi__image">
+      </div>
+    </div>
+
+    <!-- Lado derecho: Stack de 3 secciones -->
+    <div class="sobre-mi__right">
+      <div class="sobre-mi__section">
+        <h3>Soy un <span class="highlight">físico</span> apasionado por hacer modelos <span class="highlight"> matemáticos</span> </h3>
+      <div class="sobre-mi__section">
+        <p>Mi trabajo se centra en análisis y presentación de resultados, explorando la intersección entre la física y la ciencia de datos para encontrar las mejores decisiones.</p>
+      </div>
+      <div class="sobre-mi__section sobre-mi__grid">
+        <!-- Grid 4 elementos -->
+        <div class="sobre-mi__grid-item">
+          <h4>Tiempo de experiencia</h4>
+          <p>+2 años</p>
+        </div>
+        <div class="sobre-mi__grid-item">
+          <h4>Casos de éxito</h4>
+          <p>+15 proyectos</p>
+        </div>
+        <div class="sobre-mi__grid-item">
+          <h4>Certificaciones</h4>
+          <p>+5 Certificaciones</p>
+        </div>
+        <div class="sobre-mi__grid-item">
+          <h4>Horas de análisis</h4>
+          <p>+3000 horas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+</div>
+
+
+<div class="ticker-wrapper">
+  <div class="ticker">
+    <span class="ticker-item"><i class="fab fa-html5"></i> HTML</span>
+    <span class="ticker-item"><i class="fab fa-css3-alt"></i> CSS</span>
+    <span class="ticker-item"><i class="fab fa-js-square"></i> JavaScript</span>
+    <span class="ticker-item"><i class="fab fa-react"></i> React</span>
+    <span class="ticker-item"><i class="fas fa-database"></i> Data Science</span>
+    <span class="ticker-item"><i class="fab fa-python"></i> Python</span>
+    <span class="ticker-item"><i class="fas fa-database"></i> SQL</span>
+    <span class="ticker-item"><i class="fas fa-cogs"></i> Machine Learning</span>
+    <span class="ticker-item"><i class="fab fa-microsoft"></i> Power BI</span>
+    <span class="ticker-item"><i class="fab fa-windows"></i> Excel</span>
+    <span class="ticker-item"><i class="fab fa-git"></i> Git</span>
+    <span class="ticker-item"><i class="fab fa-html5"></i> HTML</span>
+    <span class="ticker-item"><i class="fab fa-css3-alt"></i> CSS</span>
+    <span class="ticker-item"><i class="fab fa-js-square"></i> JavaScript</span>
+    <span class="ticker-item"><i class="fab fa-react"></i> React</span>
+    <span class="ticker-item"><i class="fas fa-database"></i> Data Science</span>
+    <span class="ticker-item"><i class="fab fa-python"></i> Python</span>
+    <span class="ticker-item"><i class="fas fa-database"></i> SQL</span>
+    <span class="ticker-item"><i class="fas fa-cogs"></i> Machine Learning</span>
+    <span class="ticker-item"><i class="fab fa-microsoft"></i> Power BI</span>
+    <span class="ticker-item"><i class="fab fa-windows"></i> Excel</span>
+    <span class="ticker-item"><i class="fab fa-git"></i> Git</span>
+  </div>
+</div>
+
+
+
+
+
+      <!-- Educación -->
+  <section id="Educación" >
+  <!-- Universidad de las Américas Puebla -->
+  <div class="education">
+    <h3 class="education__title">
+      <a href="https://www.udlap.mx/web/" target="_blank">
+        Universidad de las Américas Puebla <i class="fas fa-external-link-alt link--icon"></i>
+      </a>
+    </h3>
+
+    <div class="education__container">
+      <div class="education__graph">
+        <div class="skill">
+          <span>Promedio Acumulado</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="94" title="94"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Análisis y métodos numéricos</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="99" title="99"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Física Estadística</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="94" title="94"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Física Computacional</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="90" title="90"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="education__info">
+        <h3>Licenciatura en Física</h3>
+        <p>
+          Además de las increíbles instalaciones y personas que conocí, lo que más disfruté de mi carrera fue explorar distintas áreas de la física. Me fascinó especialmente cómo el modelado de fenómenos mediante métodos como la entropía y el movimiento browniano puede aplicarse más allá de la ciencia exacta.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- University of Leeds -->
+  <div class="education">
+    <h3 class="education__title">
+      <a href="https://www.leeds.ac.uk" target="_blank">
+        University of Leeds <i class="fas fa-external-link-alt link--icon"></i>
+      </a>
+    </h3>
+
+    <div class="education__container">
+      <div class="education__graph">
+        <div class="skill">
+          <span>Manejo del idioma inglés</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="90" title="90"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Advanced Numerical Analysis</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="91" title="91"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Cosmology</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="85" title="85"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Epistemology</span>
+          <div class="progress">
+            <div class="progress-bar" data-progress="74" title="73"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="education__info">
+        <h3>Estancia Académica</h3>
+        <p>
+          Durante mi estancia en el Reino Unido, aproveché la oportunidad para explorar diversas áreas del conocimiento, lo que me permitió conocer personas extraordinarias y vivir experiencias únicas. Me involucré en investigaciones sobre procesos estocásticos y trabajé en proyectos relacionados con la teoría del caos en sistemas dinámicos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section skills" id="Skills">
+  <h2 class="section__title">Skills</h2>
+
+  <!-- Categorías -->
+  <div class="skills__categories">
+    <button class="category-btn active" data-category="All">Todas</button>
+    <button class="category-btn" data-category="Programación">Programación</button>
+    <button class="category-btn" data-category="Matemáticas">Matemáticas</button>
+    <button class="category-btn" data-category="Análisis">Análisis</button>
+    <button class="category-btn" data-category="Artísticas">Artísticas</button>
+    <button class="category-btn" data-category="Idiomas">Idiomas</button>
+
+  </div>
+
+
+  <section class="skills-carousel">
+    <div class="carousel-track">
+      <div class="chart-container pie-chart-container">
+        <canvas id="chartPie"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="chartBubble"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="chartBar"></canvas>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Lista de habilidades -->
+  <ul class="skills__list">
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="Python" data-level="90">Python</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="R" data-level="65">R</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="HTML" data-level="83">HTML</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="CSS" data-level="80">CSS</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="VBA" data-level="70">VBA</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="Mathematica" data-level="85">Mathematica</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="MATLAB" data-level="68">MATLAB</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Lenguaje" data-skill="SQL" data-level="80">SQL</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="Pandas" data-level="80">Pandas</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="NumPy" data-level="86">Numpy</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="Matplotlib" data-level="80">Matplotlib</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="SciPy" data-level="85">SciPy</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="Scikit-learn" data-level="95">Scikit-learn</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="TensorFlow" data-level="90">TensorFlow</li>
+    <li class="skills__list-item btn btn--plain" data-category="Programación" data-sub="Librería_python" data-skill="Statsmodels" data-level="70">Statsmodels</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="Excel" data-level="95">Excel</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="Power BI" data-level="80">Power BI</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="Google Looker Studio " data-level="82">Looker Studio</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="Tableau" data-level="72">Tableau</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="AWS" data-level="60">AWS</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="LaTex" data-level="99">LaTex</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-skill="Microsoft Azure" data-level="60">Miscrosoft Azure</li>
+    <li class="skills__list-item btn btn--plain" data-category="Análisis" data-sub="Excel" data-skill="Pivot Tables" data-level="89">Pivot Tables</li>
+    
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-sub="Adobe" data-skill="Photoshop" data-level="70"> Photoshop</li>
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-sub="Adobe" data-skill="Lightroom" data-level="65"> Lightroom</li>
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-sub="Adobe" data-skill="Illustrator" data-level="75"> Illustrator</li>
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-skill="Fotografía" data-level="75">Fotografía Digital</li>
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-skill="Piano" data-level="75"> Piano</li>
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-skill="Guitarra" data-level="75">Guitarra</li>
+    <li class="skills__list-item btn btn--plain" data-category="Artísticas" data-skill="Pintura" data-level="75">Pintura</li>
+    <li class="skills__list-item btn btn--plain" data-category="Idiomas" data-skill="Español" data-level="100">Español</li>
+    <li class="skills__list-item btn btn--plain" data-category="Idiomas" data-skill="Inglés" data-level="92">Inglés</li>
+    <li class="skills__list-item btn btn--plain" data-category="Idiomas" data-skill="Alemán" data-level="50">Alemán</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Series Temporales" data-level="80">Series Temporales</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Regresiones" data-level="90">Regresiones</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Estadística" data-level="95">Estadística</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="EDO" data-level="90">EDO</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="EDP" data-level="90">EDP</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Probabilidad" data-level="90">Probabilidad</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Algebra" data-level="80">Álgebra</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Topología" data-level="80">Topología</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Cálculo" data-level="99">Cálculo</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Modelado predictivo" data-level="90">Modelado</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Simulaciones" data-level="89">Simulaciones</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Análisis Numérico" data-level="99">Análisis Numérico</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="Machine Learning" data-level="85">Machine Learning</li>
+    <li class="skills__list-item btn btn--plain" data-category="Matemáticas" data-skill="IA" data-level="75">IA</li>
+  </ul>
+
+      <!-- Contact -->
+      <section class="section contact center" id="Contacto">
+        <h2 class="section__title">Contacto</h2>
+        <a href="mailto:emipachecuan@gmail.com">
+          <span class="btn btn--outline"> ¡Mandame un correo! </span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a
+        href="https://github.com/p4ch30"
+        class="link footer__link"
+      >
+        Página desarrollada por José Emilio Pacheco Cuan 
+      </a>
+    </footer>
+
+    <div class="scroll-container">
+      <div class="scroll-top">
+        <a aria-label="Scroll up" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+
+    <script src="./scriptgit.js"></script>
+
+  </body>
+</html>
